@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 import db from '../db.json';
 import Widget from '../src/components/Widget';
@@ -28,8 +29,16 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const [name, setName] = React.useState('');
+  console.log('retorno do useState', name, setName);
+
   return (
     <QuizBackground backgroundImage={db.bg}>
+      <Head>
+        <title>AluraQuiz</title>
+        {/* adicionar aqui as meta tags para a imagem no linkedin e outras redes */}
+      </Head>
       <QuizContainer>
         <QuizLogo />
         <Widget>
@@ -39,6 +48,27 @@ export default function Home() {
           <Widget.Content>
             <p>{db.description}</p>
           </Widget.Content>
+          <form onSubmit={function (infosDoEvento) {
+            infosDoEvento.preventDefault();
+            router.push(`/quiz?name=${name}`);
+            console.log('Fazendo uma submissão por meio do react');
+
+            // router manda para a próxima página
+          }}
+          >
+            <input
+              onChange={function (infosDoEvento) {
+                // State
+                // name = infosDoEvento.target.value;
+                setName(infosDoEvento.target.value);
+              }}
+              placeholder="Diz aí seu nome"
+            />
+            <button type="submit" disabled={name.length === 0}>
+              Jogar
+              {name}
+            </button>
+          </form>
         </Widget>
 
         <Widget>
