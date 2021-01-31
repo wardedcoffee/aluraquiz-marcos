@@ -5,7 +5,7 @@ import Widget from '../src/components/Widget';
 import QuizLogo from '../src/components/QuizLogo';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizContainer from '../src/components/QuizContainer';
-import Alternativesform from '../src/components/AlternativesForm';
+import AlternativesForm from '../src/components/AlternativesForm';
 import Button from '../src/components/Button';
 
 function ResultWidget({ results }) {
@@ -20,12 +20,12 @@ function ResultWidget({ results }) {
           Você acertou
           {' '}
           {/* {results.reduce((somatoriaAtual, resultAtual) => {
-          const isAcerto = resultAtual === true;
-          if (isAcerto) {
-            return somatoriaAtual + 1;
-          }
-          return somatoriaAtual;
-        }, 0)} */}
+            const isAcerto = resultAtual === true;
+            if (isAcerto) {
+              return somatoriaAtual + 1;
+            }
+            return somatoriaAtual;
+          }, 0)} */}
           {results.filter((x) => x).length}
           {' '}
           perguntas
@@ -101,7 +101,7 @@ function QuestionWidget({
           {question.description}
         </p>
 
-        <Alternativesform
+        <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
             setIsQuestionSubmited(true);
@@ -139,13 +139,13 @@ function QuestionWidget({
 
           {/* <pre>
             {JSON.stringify(question, null, 4)}
-            </pre> */}
+          </pre> */}
           <Button type="submit" disabled={!hasAlternativeSelected}>
             Confirmar
           </Button>
           {isQuestionSubmited && isCorrect && <p>Você acertou!</p>}
           {isQuestionSubmited && !isCorrect && <p>Você errou!</p>}
-        </Alternativesform>
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );
@@ -181,7 +181,7 @@ export default function QuizPage() {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
     }, 1 * 1000);
-    // nasce ===didMount
+  // nasce === didMount
   }, []);
 
   function handleSubmitQuiz() {

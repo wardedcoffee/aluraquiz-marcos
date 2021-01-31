@@ -48,24 +48,23 @@ export default function Home() {
           </Widget.Header>
           <Widget.Content>
             <p>{db.description}</p>
+            <form onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              router.push(`/quiz?name=${name}`);
+            }}
+            >
+              <Input
+                name="nomeDoUsuario"
+                onChange={(infosDoEvento) => setName(infosDoEvento.target.value)}
+                placeholder="Diz aí seu nome"
+                value={name}
+              />
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}`}
+              </Button>
+            </form>
           </Widget.Content>
-          <form onSubmit={function (infosDoEvento) {
-            infosDoEvento.preventDefault();
-            router.push(`/quiz?name=${name}`);
 
-            // router manda para a próxima página
-          }}
-          >
-            <Input
-              name="nomeDoUsuario"
-              onChange={(infosDoEvento) => setName(infosDoEvento.target.value)}
-              placeholder="Diz aí seu nome"
-              value={name}
-            />
-            <Button type="submit" disabled={name.length === 0}>
-              {`Jogar ${name}`}
-            </Button>
-          </form>
         </Widget>
 
         <Widget>
