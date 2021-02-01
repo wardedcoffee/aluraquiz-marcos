@@ -44,20 +44,39 @@ export default function Home() {
           {db.title}
         </title>
 
-        <meta name="title" content="HTML - THE BEST PROGRAMMING LANGUAGE" />
-        <meta name="description" content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!" />
+        {/* <!-- Primary Meta Tags --> */}
 
+        <meta name="title" content="HTML - THE BEST PROGRAMMING LANGUAGE" />
+        <meta
+          name="description"
+          content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!
+            <br/>Photo by Markus Spiske on Unsplash"
+        />
+
+        {/* <!-- Open Graph / Facebook --> */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://metatags.io/" />
         <meta property="og:title" content="HTML - THE BEST PROGRAMMING LANGUAGE" />
-        <meta property="og:description" content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!" />
+        <meta
+          property="og:description"
+          content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!
+            <br/>Photo by Markus Spiske on Unsplash"
+        />
+
         <meta property="og:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png" />
 
+        {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://metatags.io/" />
         <meta property="twitter:title" content="HTML - THE BEST PROGRAMMING LANGUAGE" />
-        <meta property="twitter:description" content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!" />
+        <meta
+          property="twitter:description"
+          content="Projeto de Next.js realizado durante a Imersão React v2 da Alura!
+             <br/>Photo by Markus Spiske on Unsplash"
+        />
+
         <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png" />
+
       </Head>
       <QuizContainer>
         <QuizLogo />
